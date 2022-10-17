@@ -13,15 +13,11 @@ import { AmqpService } from './amqp.service';
       useFactory: () => ({
         exchanges: [
           {
-            name: 'services',
-            type: 'topic',
-          },
-          {
-            name: 'broadcast',
-            type: 'fanout',
-          },
+            name: `${process.env.RMQ_EXCHANGE_NAME}`,
+            type: `${process.env.RMQ_EXCHANGE_TYPE}`,
+          }
         ],
-        connectionInitOptions: { wait: false, timeout: 20000 },
+        connectionInitOptions: { wait: false, timeout: Number(`${process.env.RMQ_TIMEOUT}`) },
         uri: `${process.env.RMQ_HOST}`,
       }),
     }),

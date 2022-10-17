@@ -9,6 +9,13 @@ export class AmqpController {
 
     @Post('rpc')
     public async rpc(@Body() body:BodyRequestDto) {
+        if (!body.exchange) body.exchange = `${process.env.RMQ_EXCHANGE_NAME}`;
         return await this.amqpService.rpc(body);
+    }
+
+    @Post('publish')
+    public async publish(@Body() body:BodyRequestDto) {
+        if (!body.exchange) body.exchange = `${process.env.RMQ_EXCHANGE_NAME}`;
+        return await this.amqpService.publish(body);
     }
 }

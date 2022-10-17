@@ -10,7 +10,7 @@ export class AmqpService implements AmqpInterface {
 
     public async rpc(body: BodyRequestDto):Promise<SuccessResponse | ErrorResponse> {
         try {
-            const {exchange, payload, routingKey} = body;
+            const { exchange, payload, routingKey} = body;
             const data = await this.rmq.request({exchange, routingKey, payload});
             return new SuccessResponse(HttpStatus.OK, 'RPC is success', data);
         } catch (error) {
