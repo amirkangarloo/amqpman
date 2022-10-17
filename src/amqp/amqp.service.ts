@@ -22,7 +22,7 @@ export class AmqpService implements AmqpInterface {
     public async publish(body: BodyRequestDto):Promise<SuccessResponse | ErrorResponse> {
         try {
             const {exchange, payload, routingKey} = body;
-            await this.rmq.request({exchange, routingKey, payload});
+            await this.rmq.publish(exchange, routingKey, payload);
             return new SuccessResponse(HttpStatus.OK, 'Publish is success');
         } catch (error) {
             console.log(error);
