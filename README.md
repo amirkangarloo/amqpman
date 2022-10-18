@@ -35,6 +35,17 @@ $ npm run test:cov
 ```
 
 
+## How can I use
+
+Call Post API below with your routingKey and payload.
+
+|  **Methods** | **URL**  | **Body**  | **Response**  |
+| :------------: | :------------: | :------------: | :------------: |
+|  Post | http://localhost:25672/amqp/rpc  | routingKey -  payload | Success + data or Error  |
+| Post  | http://localhost:25672/amqp/publish  | routingKey -  payload  |  Success or Error |
+
+
+
 ## License
 
 [MIT licensed](LICENSE).
