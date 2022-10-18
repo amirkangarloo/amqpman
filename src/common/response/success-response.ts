@@ -3,10 +3,10 @@ import { BaseResponseInterface } from "../interface";
 export class SuccessResponse implements BaseResponseInterface {
     statusCode: number;
     message: string;
-    response?: any;
-    constructor(statusCode:number, message: string, response?: any){
+    data?: any;
+    constructor(statusCode:number, message: string, data?: any){
         this.statusCode = statusCode;
         this.message = message;
-        this.response = response;
+        this.data = data;
     }
 }
