@@ -11,7 +11,7 @@ export class AmqpService implements AmqpInterface {
     public async rpc(body: BodyRequestDto):Promise<SuccessResponse | ErrorResponse> {
         try {
             const { exchange, payload, routingKey} = body;            
-            const data = await this.rmq.request({exchange, routingKey, payload});
+            const data = await this.rmq.request({exchange, routingKey, payload , timeout: Number(`${process.env.RMQ_TIMEOUT}`)});
             return new SuccessResponse(HttpStatus.OK, 'RPC is success', data);
         } catch (error) {
             console.log(error);
