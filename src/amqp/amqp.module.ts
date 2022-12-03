@@ -17,7 +17,7 @@ import { AmqpService } from './amqp.service';
             type: `${process.env.RMQ_EXCHANGE_TYPE}`,
           }
         ],
-        connectionInitOptions: { wait: false, timeout: Number(`${process.env.RMQ_TIMEOUT}`) },
+        connectionInitOptions: { wait: true, timeout: Number(`${process.env.RMQ_TIMEOUT}`) },
         uri: `${process.env.RMQ_HOST}`,
       }),
     }),
