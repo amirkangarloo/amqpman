@@ -35,4 +35,4 @@ Call Post API below with your routingKey and payload.
 
 ## License
 
-[MIT licensed](LICENSE).
+[MIT licensed](LICENCE).
